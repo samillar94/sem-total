@@ -143,8 +143,11 @@ const processDataSuites = {
                 unit: "hours"
             },
             {
-                total: 66,
-                totalAvailable: 154,
+                error: false,
+                data: {
+                    total: 66,
+                    totalAvailable: 154,
+                },
                 lines: ["Total of 66 hours attended, of 154 available"]
             }
         ],
@@ -155,8 +158,11 @@ const processDataSuites = {
                 unit: "h"
             },
             {
-                total: 76.5,
-                totalAvailable: 240,
+                error: false,
+                data: {
+                    total: 76.5,
+                    totalAvailable: 240,
+                },
                 lines: ["Total of 76.5 h attended, of 240 available"]
             }
         ],
@@ -167,8 +173,11 @@ const processDataSuites = {
                 unit: "classes"
             },
             {
-                total: 26,
-                totalAvailable: 120,
+                error: false,
+                data: {
+                    total: 26,
+                    totalAvailable: 120
+                },
                 lines: ["Total of 26 classes attended, of 120 available"]
             }
         ]

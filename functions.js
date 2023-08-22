@@ -20,13 +20,13 @@ function extractData(query) {
   let av = query['availability_1'];
   let u = query['unit_1'];
 
-  if (typeof att == undefined || typeof att == undefined || typeof att == undefined) {
+  if (typeof att === "undefined" || typeof av === "undefined" || typeof uNext === "undefined") {
     throw new Error("Component attribute missing");
   };
 
-  for (nextID = 2; (nextID <= count/3 + 1 && hasNext == true); nextID++) {
+  for (let nextID = 2; (nextID <= count/3 + 1 && hasNext == true); nextID++) {
     
-    console.log(nextID-1);
+    // console.log(nextID-1);
     let attFloat = parseFloat(att);
     let avFloat = parseFloat(av);
 
@@ -49,7 +49,7 @@ function extractData(query) {
       hasNext = false;
     } else if (typeof att === "undefined" || typeof av === "undefined" || typeof uNext === "undefined") {
       hasNext = false;
-      throw new Error("Inconsistent counts of component attributes");
+      throw new Error(`Inconsistent counts of component attributes. Next attendance ${att}, next availability ${av}, next unit ${uNext}`);
     } else if (uNext != u) {
       hasNext = false;
       throw new Error(`Inconsistent units ${nextId-1}:"${u}" and ${nextID}:"${uNext}"`);
@@ -70,22 +70,26 @@ return extractedData };
  */
 function processData(extractedData) {
 
-  let processedData = {};
-  processedData.lines = [];
-  processedData.total = 0;
-  processedData.totalAvailable = 0;
+  let resToFront = {
+    error: false,
+    data: {},
+    lines: []
+  };
+  resToFront.lines = [];
+  resToFront.data.total = 0;
+  resToFront.data.totalAvailable = 0;
 
   extractedData.attendances.forEach(attendance => {
-    processedData.total += attendance;
+    resToFront.data.total += attendance;
   });
 
   extractedData.availabilities.forEach(availability => {
-    processedData.totalAvailable += availability;
+    resToFront.data.totalAvailable += availability;
   });
 
-  processedData.lines.push(`Total of ${processedData.total} ${extractedData.unit} attended, of ${processedData.totalAvailable} available`);
+  resToFront.lines.push(`Total of ${resToFront.data.total} ${extractedData.unit} attended, of ${resToFront.data.totalAvailable} available`);
 
-return processedData };
+return resToFront };
 
 module.exports = {
 	extractData, processData
