@@ -25,6 +25,7 @@ function extractData(query) {
 
   for (nextID = 2; nextID <= count.length/3 + 1, hasNext == true; nextID++) {
     
+    console.log(nextID);
     let attFloat = parseFloat(att);
     let avFloat = parseFloat(av);
 
