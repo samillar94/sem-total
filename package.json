@@ -5,9 +5,11 @@
  "author": "Your Name <your.email@qub.ac.uk>",
  "main": "server.js",
  "scripts": {
-   "start": "node server.js"
+   "start": "node server.js",
+   "test": "jest"
  },
  "dependencies": {
-   "express": "^4.16.1"
+   "express": "^4.16.1",
+   "jest": "latest"
   }
 }

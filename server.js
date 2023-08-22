@@ -9,29 +9,29 @@ const params = [1,2,3,4];
 
 const app = express();
 
+const { extractData, processData } = require('./functions.js');
+
 app.get('/', (req,res) => {
 
-  let r = {
-    "error": false,
-    "data": {},
-    "total": 0
+  let results = {
+    "error": true
   }
 
-  let data = {}
-  let total = 0;
+  try {
+    let extractedData = extractData(req.query);
+    let processedData = processData(extractedData);
+    results.data = processedData;
+    results.error = false;
+  } catch (err) {
+    results.message = err;
+  }
 
-  params.forEach(id => {
-    let att = req.query['attendance_'+id];
-    r.data[req.query['item_'+id]] = att;
-    r.total+=parseInt(att);
-  });
-
-  console.log(r)
+  console.log(results)
 
   res.setHeader('Content-Type', 'application/json');
   res.setHeader('Access-Control-Allow-Origin', '*');
-  res.send(r);
+  res.send(results);
 });
 
 app.listen(PORT, HOST);
-console.log('Running on http://${HOST}:${PORT}');
+console.log(`Running on http://${HOST}:${PORT}`);
