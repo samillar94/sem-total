@@ -12,7 +12,7 @@ function extractData(query) {
   };
 
   const count = Object.entries(query).length;
-  console.log(count.length/3 + 1);
+  console.log(count/3 + 1);
 
   let hasNext = true;
 
@@ -24,9 +24,9 @@ function extractData(query) {
     throw new Error("Component attribute missing");
   };
 
-  for (nextID = 2; (nextID <= count.length/3 + 1 && hasNext == true); nextID++) {
+  for (nextID = 2; (nextID <= count/3 + 1 && hasNext == true); nextID++) {
     
-    console.log(nextID);
+    // console.log(nextID);
     let attFloat = parseFloat(att);
     let avFloat = parseFloat(av);
 
