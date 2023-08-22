@@ -1,8 +1,8 @@
 {
- "name": "docker_node_app",
+ "name": "sem-total",
  "version": "1.0.0",
  "description": "Node App on Docker",
- "author": "Your Name <your.email@qub.ac.uk>",
+ "author": "Sam Millar <smillar36@qub.ac.uk>",
  "main": "server.js",
  "scripts": {
    "start": "node server.js",
@@ -10,6 +10,6 @@
  },
  "dependencies": {
    "express": "^4.16.1",
-   "jest": "latest"
+   "jest": "29.6.3"
   }
 }
