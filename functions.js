@@ -12,7 +12,7 @@ function extractData(query) {
   };
 
   const count = Object.entries(query).length;
-  console.log(count+' params')
+  console.log(count.length/3 + 1);
 
   let hasNext = true;
 

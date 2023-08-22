@@ -119,13 +119,13 @@ const extractDataSuites = {
 describe("extractData", () => {
 
     // let index = 0;
-    test.each(extractDataSuites.valid)('returns extractedData for valid query ($#)', (input, expected) => {
+    test.each(extractDataSuites.valid)('returns extractedData for valid query (%#)', (input, expected) => {
         expect(extractData(input)).toMatchObject(expected);
         // index++;
     }, )
 
     // index = 0;
-    test.each(extractDataSuites.diffCounts)('throws error for different counts of attendances/availabilities/units ($#)', (input) => {
+    test.each(extractDataSuites.diffCounts)('throws error for different counts of attendances/availabilities/units (%#)', (input) => {
         expect(()=>extractData(input)).toThrow();
         // index++;
     })
@@ -180,7 +180,7 @@ const processDataSuites = {
 describe("processData", () => {
 
     // let index = 0;
-    test.each(processDataSuites.valid)('returns processedData for valid query ($#)', (input, expected) => {
+    test.each(processDataSuites.valid)('returns processedData for valid query (%#)', (input, expected) => {
         expect(processData(input)).toMatchObject(expected);
         // index++;
     });
