@@ -1,10 +1,6 @@
 image: node:18
 
-stages:
-- test
-
 test:
-stage: test
   script:
-  - npm install
-  - node ./test/functions.test.js
+    - npm install
+    - node ./test/functions.test.js
