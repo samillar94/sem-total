@@ -117,7 +117,7 @@ describe("extractData", () => {
 
     // test("returns processedData for valid queries", () => {
         test.each(testCases.valid)('.extractData(%i)', (input, expected) => {
-            expect(input).toBe(expected);
+            expect(input).toMatchObject(expected);
         })
     // });
 
