@@ -12,7 +12,7 @@ function extractData(query) {
   };
 
   const count = Object.entries(query).length;
-  console.log(count/3 + 1);
+  // console.log(count/3 + 1);
 
   let hasNext = true;
 
@@ -26,7 +26,7 @@ function extractData(query) {
 
   for (nextID = 2; (nextID <= count/3 + 1 && hasNext == true); nextID++) {
     
-    // console.log(nextID);
+    console.log(nextID-1);
     let attFloat = parseFloat(att);
     let avFloat = parseFloat(av);
 
@@ -41,18 +41,18 @@ function extractData(query) {
     extractedData.attendances.push(attFloat);
     extractedData.availabilities.push(avFloat);
 
-    att = query['attendance_'+nextID];
-    av = query['availability_'+nextID];
-    uNext = query['unit_'+nextID];
+    att = query[`attendance_${nextID}`];
+    av = query[`availability_${nextID}`];
+    uNext = query[`unit_${nextID}`];
 
-    if (typeof att == undefined && typeof av == undefined && typeof uNext == undefined) {
+    if (typeof att === "undefined" && typeof av === "undefined" && typeof uNext === "undefined") {
       hasNext = false;
-    } else if (typeof att == undefined || typeof av == undefined || typeof uNext == undefined) {
+    } else if (typeof att === "undefined" || typeof av === "undefined" || typeof uNext === "undefined") {
       hasNext = false;
       throw new Error("Inconsistent counts of component attributes");
     } else if (uNext != u) {
       hasNext = false;
-      throw new Error("Inconsistent units");
+      throw new Error(`Inconsistent units ${nextId-1}:"${u}" and ${nextID}:"${uNext}"`);
     } else {
       u = uNext;
     };
