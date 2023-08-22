@@ -1,4 +1,4 @@
-const { extractData, processData } = require('./functions.js');
+const { extractData, processData } = require('../functions.js');
 
 const testCases = {
     valid: [
