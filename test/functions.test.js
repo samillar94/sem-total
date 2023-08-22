@@ -1,6 +1,6 @@
 const { extractData, processData } = require('../functions.js');
 
-const testCases = {
+const extractDataSuites = {
     valid: [
         [
             {
@@ -19,6 +19,7 @@ const testCases = {
             },
             {
                 attendances: [0, 1, 10, 55],
+                availabilities: [33, 22, 44, 55],
                 unit: "hours"
             }   
         ],
@@ -26,7 +27,7 @@ const testCases = {
             {
                 foo: "bar",
                 attendance_1: 4,
-                attendance_2: 22,
+                attendance_2: 22.5,
                 attendance_3: 0,
                 attendance_4: 50,
                 availability_1: 60,
@@ -39,7 +40,8 @@ const testCases = {
                 unit_4: "horas"
             },
             {
-                attendances: [4, 22, 0, 50],
+                attendances: [4, 22.5, 0, 50],
+                availabilities: [60, 60, 60, 60],
                 unit: "horas"
             }   
         ],
@@ -54,6 +56,7 @@ const testCases = {
             },
             {
                 attendances: [4, 22],
+                availabilities: [60, 60],
                 unit: "h"
             }   
         ],
@@ -115,12 +118,65 @@ const testCases = {
 
 describe("extractData", () => {
 
-    test.each(testCases.valid)('returns processedData for valid query', (input, expected) => {
+    test.each(extractDataSuites.valid)('returns extractedData for valid query', (input, expected) => {
         expect(extractData(input)).toMatchObject(expected);
     })
 
-    test.each(testCases.diffCounts)('throws error for different counts of attendances/availabilities/units', (input) => {
+    test.each(extractDataSuites.diffCounts)('throws error for different counts of attendances/availabilities/units', (input) => {
         expect(()=>extractData(input)).toThrow();
+    })
+
+    /// TODO negatives etc.
+
+});
+
+const processDataSuites = {
+    valid: [
+        [
+            {
+                attendances: [0, 1, 10, 55],
+                availabilities: [33, 22, 44, 55],
+                unit: "hours"
+            },
+            {
+                total: 66,
+                totalAvailable: 154,
+                lines: ["Total of 66 hours attended, of 154 available"]
+            }
+        ],
+        [
+            {
+                attendances: [4, 22.5, 0, 50],
+                availabilities: [60, 60, 60, 60],
+                unit: "horas"
+            },
+            {
+                total: 76.5,
+                totalAvailable: 240,
+                lines: ["Total of 76.5 hours attended, of 240 available"]
+            }
+        ],
+        [
+            {
+                attendances: [4, 22],
+                availabilities: [60, 60],
+                unit: "h"
+            },
+            {
+                total: 26,
+                totalAvailable: 120,
+                lines: ["Total of 26 hours attended, of 120 available"]
+            }
+        ]
+    ],
+
+    /// TODO
+};
+
+describe("processData", () => {
+
+    test.each(processDataSuites.valid)('returns processedData for valid query', (input, expected) => {
+        expect(processData(input)).toMatchObject(expected);
     })
 
 });
