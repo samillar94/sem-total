@@ -118,12 +118,16 @@ const extractDataSuites = {
 
 describe("extractData", () => {
 
-    test.each(extractDataSuites.valid)('returns extractedData for valid query', (input, expected) => {
+    let index = 0;
+    test.each(extractDataSuites.valid)(`returns extractedData for valid query (${index})`, (input, expected) => {
         expect(extractData(input)).toMatchObject(expected);
+        index++;
     })
 
-    test.each(extractDataSuites.diffCounts)('throws error for different counts of attendances/availabilities/units', (input) => {
+    index = 0;
+    test.each(extractDataSuites.diffCounts)(`throws error for different counts of attendances/availabilities/units (${index})`, (input) => {
         expect(()=>extractData(input)).toThrow();
+        index++;
     })
 
     /// TODO negatives etc.
@@ -148,24 +152,24 @@ const processDataSuites = {
             {
                 attendances: [4, 22.5, 0, 50],
                 availabilities: [60, 60, 60, 60],
-                unit: "horas"
+                unit: "h"
             },
             {
                 total: 76.5,
                 totalAvailable: 240,
-                lines: ["Total of 76.5 hours attended, of 240 available"]
+                lines: ["Total of 76.5 h attended, of 240 available"]
             }
         ],
         [
             {
                 attendances: [4, 22],
                 availabilities: [60, 60],
-                unit: "h"
+                unit: "classes"
             },
             {
                 total: 26,
                 totalAvailable: 120,
-                lines: ["Total of 26 hours attended, of 120 available"]
+                lines: ["Total of 26 classes attended, of 120 available"]
             }
         ]
     ],
@@ -175,8 +179,10 @@ const processDataSuites = {
 
 describe("processData", () => {
 
-    test.each(processDataSuites.valid)('returns processedData for valid query', (input, expected) => {
+    let index = 0;
+    test.each(processDataSuites.valid)(`returns processedData for valid query (${index})`, (input, expected) => {
         expect(processData(input)).toMatchObject(expected);
-    })
+        index++;
+    });
 
 });

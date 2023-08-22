@@ -2,7 +2,7 @@
 /**
  * 
  * @param {object} query 
- * @returns extractedData = { attendances, unit }
+ * @returns extractedData = { {array} attendances, {array} availabilities, {str} unit }
  */
 function extractData(query) {
 
@@ -23,7 +23,7 @@ function extractData(query) {
     throw new Error("Component attribute missing");
   };
 
-  for (nextID = 2; nextID <= count.length/3, hasNext == false; nextID++) {
+  for (nextID = 2; nextID <= count.length/3 + 1, hasNext == true; nextID++) {
     
     let attFloat = parseFloat(att);
     let avFloat = parseFloat(av);
@@ -38,7 +38,6 @@ function extractData(query) {
 
     extractedData.attendances.push(attFloat);
     extractedData.availabilities.push(avFloat);
-    extractedData.total += attFloat;
 
     att = query['attendance_'+nextID];
     av = query['availability_'+nextID];
@@ -62,7 +61,7 @@ return extractedData };
 
 /**
  * 
- * @param {object} extractedData = { {array} attendances, {str} unit}
+ * @param {object} extractedData = { {array} attendances, {array} availabilities, {str} unit}
  * @returns processedData = { {array} lines, {float} total }
  */
 function processData(extractedData) {
