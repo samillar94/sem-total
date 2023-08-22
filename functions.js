@@ -12,6 +12,7 @@ function extractData(query) {
   };
 
   const count = Object.entries(query).length;
+  console.log(count+' params')
 
   let hasNext = true;
 
@@ -23,7 +24,7 @@ function extractData(query) {
     throw new Error("Component attribute missing");
   };
 
-  for (nextID = 2; nextID <= count.length/3 + 1, hasNext == true; nextID++) {
+  for (nextID = 2; (nextID <= count.length/3 + 1 && hasNext == true); nextID++) {
     
     console.log(nextID);
     let attFloat = parseFloat(att);
@@ -47,8 +48,10 @@ function extractData(query) {
     if (typeof att == undefined && typeof av == undefined && typeof uNext == undefined) {
       hasNext = false;
     } else if (typeof att == undefined || typeof av == undefined || typeof uNext == undefined) {
+      hasNext = false;
       throw new Error("Inconsistent counts of component attributes");
     } else if (uNext != u) {
+      hasNext = false;
       throw new Error("Inconsistent units");
     } else {
       u = uNext;
