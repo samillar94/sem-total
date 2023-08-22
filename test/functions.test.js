@@ -115,16 +115,12 @@ const testCases = {
 
 describe("extractData", () => {
 
-    // test("returns processedData for valid queries", () => {
-        test.each(testCases.valid)('.extractData(%i)', (input, expected) => {
-            expect(input).toMatchObject(expected);
-        })
-    // });
+    test.each(testCases.valid)('returns processedData for valid query', (input, expected) => {
+        expect(extractData(input)).toMatchObject(expected);
+    })
 
-    // test("throws error for different counts of attendances/availabilities/hours", () => {
-        test.each(testCases.diffCounts)('.extractData(%i)', (input) => {
-            expect(()=>extractData(input)).toThrow();
-        })
-    // });
+    test.each(testCases.diffCounts)('throws error for different counts of attendances/availabilities/units', (input) => {
+        expect(()=>extractData(input)).toThrow();
+    })
 
 });
