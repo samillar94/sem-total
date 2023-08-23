@@ -21,7 +21,7 @@ function extractData(query) {
   let av = query['availability_1'];
   let u = query['unit_1'];
 
-  if (typeof att === "undefined" || typeof av === "undefined" || typeof uNext === "undefined") {
+  if (typeof att === "undefined" || typeof av === "undefined" || typeof u === "undefined") {
     throw new Error("Component attribute missing");
   };
 
@@ -53,7 +53,7 @@ function extractData(query) {
       throw new Error(`Inconsistent counts of component attributes. Next attendance ${att}, next availability ${av}, next unit ${uNext}`);
     } else if (uNext != u) {
       hasNext = false;
-      throw new Error(`Inconsistent units ${nextId-1}:"${u}" and ${nextID}:"${uNext}"`);
+      throw new Error(`Inconsistent units ${nextID-1}:"${u}" and ${nextID}:"${uNext}"`);
     } else {
       u = uNext;
     };
