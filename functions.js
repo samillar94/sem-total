@@ -8,7 +8,8 @@ function extractData(query) {
 
   let extractedData = {
     attendances: [],
-    availabilities: []
+    availabilities: [],
+    unit: ""
   };
 
   const count = Object.entries(query).length;
@@ -68,14 +69,14 @@ return extractedData };
  * @param {object} extractedData = { {array} attendances, {array} availabilities, {str} unit}
  * @returns processedData = { {array} lines, {float} total }
  */
-function processData(extractedData) {
+function buildResponse(extractedData) {
 
   let resToFront = {
     error: false,
     data: {},
     lines: []
   };
-  resToFront.lines = [];
+  
   resToFront.data.total = 0;
   resToFront.data.totalAvailable = 0;
 
@@ -92,5 +93,5 @@ function processData(extractedData) {
 return resToFront };
 
 module.exports = {
-	extractData, processData
+	extractData, buildResponse
 };

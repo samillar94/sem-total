@@ -1,4 +1,4 @@
-const { extractData, processData } = require('../functions.js');
+const { extractData, buildResponse } = require('../functions.js');
 
 const extractDataSuites = {
     valid: [
@@ -134,7 +134,7 @@ describe("extractData", () => {
 
 });
 
-const processDataSuites = {
+const buildResponseSuites = {
     valid: [
         [
             {
@@ -186,11 +186,11 @@ const processDataSuites = {
     /// TODO
 };
 
-describe("processData", () => {
+describe("buildResponse", () => {
 
     // let index = 0;
-    test.each(processDataSuites.valid)('returns processedData for valid query (%#)', (input, expected) => {
-        expect(processData(input)).toMatchObject(expected);
+    test.each(buildResponseSuites.valid)('returns resToFront for valid extractedData (%#)', (input, expected) => {
+        expect(buildResponse(input)).toMatchObject(expected);
         // index++;
     });
 

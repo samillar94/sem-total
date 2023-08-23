@@ -9,28 +9,26 @@ const params = [1,2,3,4];
 
 const app = express();
 
-const { extractData, processData } = require('./functions.js');
+const { extractData, buildResponse } = require('./functions.js');
 
 app.get('/', (req,res) => {
 
-  let results = {
+  let resToFront = {
     "error": true
   }
 
   try {
     let extractedData = extractData(req.query);
-    let processedData = processData(extractedData);
-    results.data = processedData;
-    results.error = false;
+    resToFront = buildResponse(extractedData);
   } catch (err) {
-    results.message = err;
+    resToFront.message = err;
   }
 
-  console.log(results)
+  console.log(resToFront)
 
   res.setHeader('Content-Type', 'application/json');
   res.setHeader('Access-Control-Allow-Origin', '*');
-  res.send(results);
+  res.send(resToFront);
 });
 
 app.listen(PORT, HOST);
