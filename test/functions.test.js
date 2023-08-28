@@ -1,4 +1,4 @@
-const { extractData, buildResponse } = require('../functions.js');
+const { extractData, buildResults } = require('../functions.js');
 
 const extractDataSuites = {
     valid: [
@@ -134,7 +134,7 @@ describe("extractData", () => {
 
 });
 
-const buildResponseSuites = {
+const buildResultsSuites = {
     valid: [
         [
             {
@@ -186,11 +186,11 @@ const buildResponseSuites = {
     /// TODO
 };
 
-describe("buildResponse", () => {
+describe("buildResults", () => {
 
     // let index = 0;
-    test.each(buildResponseSuites.valid)('returns resToFront for valid extractedData (%#)', (input, expected) => {
-        expect(buildResponse(input)).toMatchObject(expected);
+    test.each(buildResultsSuites.valid)('returns resToFront for valid extractedData (%#)', (input, expected) => {
+        expect(buildResults(input)).toMatchObject(expected);
         // index++;
     });
 

@@ -69,29 +69,29 @@ return extractedData };
  * @param {object} extractedData = { {array} attendances, {array} availabilities, {str} unit}
  * @returns processedData = { {array} lines, {float} total }
  */
-function buildResponse(extractedData) {
+function buildResults(extractedData) {
 
-  let resToFront = {
+  let results = {
     error: false,
     data: {},
     lines: []
   };
   
-  resToFront.data.total = 0;
-  resToFront.data.totalAvailable = 0;
+  results.data.total = 0;
+  results.data.totalAvailable = 0;
 
   extractedData.attendances.forEach(attendance => {
-    resToFront.data.total += attendance;
+    results.data.total += attendance;
   });
 
   extractedData.availabilities.forEach(availability => {
-    resToFront.data.totalAvailable += availability;
+    results.data.totalAvailable += availability;
   });
 
-  resToFront.lines.push(`Total of ${resToFront.data.total} ${extractedData.unit} attended, of ${resToFront.data.totalAvailable} available`);
+  results.lines.push(`Total of ${results.data.total} ${extractedData.unit} attended, of ${results.data.totalAvailable} available`);
 
-return resToFront };
+return results };
 
 module.exports = {
-	extractData, buildResponse
+	extractData, buildResults
 };
