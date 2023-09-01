@@ -15,7 +15,7 @@ const extractDataSuites = {
                 unit_1: "hours",
                 unit_2: "hours",
                 unit_3: "hours",
-                unit_4: "hours"     
+                unit_4: "hours"
             },
             {
                 attendances: [0, 1, 10, 55],
@@ -113,6 +113,298 @@ const extractDataSuites = {
             }   
         ],
 
+    ],
+    nonNumeric: [
+        [
+            {
+                attendance_1: "five",
+                attendance_2: 1,
+                attendance_3: 10,
+                attendance_4: 55,
+                availability_1: 33,
+                availability_2: 22,
+                availability_3: 44,
+                availability_4: 55,
+                unit_1: "hours",
+                unit_2: "hours",
+                unit_3: "hours",
+                unit_4: "hours"
+            },
+            {
+                attendance_1: 0,
+                attendance_2: "3.5.92",
+                attendance_3: 10,
+                attendance_4: 55,
+                availability_1: 33,
+                availability_2: 22,
+                availability_3: 44,
+                availability_4: 55,
+                unit_1: "hours",
+                unit_2: "hours",
+                unit_3: "hours",
+                unit_4: "hours"
+            },
+            {
+                attendance_1: 0,
+                attendance_2: 1,
+                attendance_3: "",
+                attendance_4: 55,
+                availability_1: 33,
+                availability_2: 22,
+                availability_3: 44,
+                availability_4: 55,
+                unit_1: "hours",
+                unit_2: "hours",
+                unit_3: "hours",
+                unit_4: "hours"
+            },
+            {
+                attendance_1: 0,
+                attendance_2: 1,
+                attendance_3: 10,
+                attendance_4: "quart",
+                availability_1: 33,
+                availability_2: 22,
+                availability_3: 44,
+                availability_4: 55,
+                unit_1: "hours",
+                unit_2: "hours",
+                unit_3: "hours",
+                unit_4: "hours"
+            },
+            {
+                attendance_1: 0,
+                attendance_2: 1,
+                attendance_3: 10,
+                attendance_4: "3.141592653589793238462lol",
+                availability_1: 33,
+                availability_2: 22,
+                availability_3: 44,
+                availability_4: 55,
+                unit_1: "hours",
+                unit_2: "hours",
+                unit_3: "hours",
+                unit_4: "hours"
+            },
+            {
+                attendance_1: 0,
+                attendance_2: 1,
+                attendance_3: 10,
+                attendance_4: 55,
+                availability_1: "",
+                availability_2: 22,
+                availability_3: 44,
+                availability_4: 55,
+                unit_1: "hours",
+                unit_2: "hours",
+                unit_3: "hours",
+                unit_4: "hours"
+            },
+            {
+                attendance_1: 0,
+                attendance_2: 1,
+                attendance_3: 10,
+                attendance_4: 55,
+                availability_1: 33,
+                availability_2: "speedrunCI",
+                availability_3: 44,
+                availability_4: 55,
+                unit_1: "hours",
+                unit_2: "hours",
+                unit_3: "hours",
+                unit_4: "hours"
+            },
+            {
+                attendance_1: 0,
+                attendance_2: 1,
+                attendance_3: 10,
+                attendance_4: 55,
+                availability_1: 33,
+                availability_2: 22,
+                availability_3: "5.5.5.5.5.5.5.5.5.5.5",
+                availability_4: 55,
+                unit_1: "hours",
+                unit_2: "hours",
+                unit_3: "hours",
+                unit_4: "hours"
+            },
+        ]
+    ],
+    negative: [
+        [
+            {
+                attendance_1: -99999999990,
+                attendance_2: 1,
+                attendance_3: 10,
+                attendance_4: 55,
+                availability_1: 33,
+                availability_2: 22,
+                availability_3: 44,
+                availability_4: 55,
+                unit_1: "hours",
+                unit_2: "hours",
+                unit_3: "hours",
+                unit_4: "hours"
+            },
+            {
+                attendance_1: 0,
+                attendance_2: -1,
+                attendance_3: 10,
+                attendance_4: 55,
+                availability_1: 33,
+                availability_2: 22,
+                availability_3: 44,
+                availability_4: 55,
+                unit_1: "hours",
+                unit_2: "hours",
+                unit_3: "hours",
+                unit_4: "hours"
+            },
+            {
+                attendance_1: 0,
+                attendance_2: 1,
+                attendance_3: -10,
+                attendance_4: 55,
+                availability_1: 33,
+                availability_2: 22,
+                availability_3: 44,
+                availability_4: 55,
+                unit_1: "hours",
+                unit_2: "hours",
+                unit_3: "hours",
+                unit_4: "hours"
+            },
+            {
+                attendance_1: 0,
+                attendance_2: 1,
+                attendance_3: 10,
+                attendance_4: -55,
+                availability_1: 33,
+                availability_2: 22,
+                availability_3: 44,
+                availability_4: 55,
+                unit_1: "hours",
+                unit_2: "hours",
+                unit_3: "hours",
+                unit_4: "hours"
+            },
+            {
+                attendance_1: 0,
+                attendance_2: 1,
+                attendance_3: 10,
+                attendance_4: 55,
+                availability_1: -33,
+                availability_2: 22,
+                availability_3: 44,
+                availability_4: 55,
+                unit_1: "hours",
+                unit_2: "hours",
+                unit_3: "hours",
+                unit_4: "hours"
+            },
+            {
+                attendance_1: 0,
+                attendance_2: 1,
+                attendance_3: 10,
+                attendance_4: 55,
+                availability_1: 33,
+                availability_2: -22,
+                availability_3: 44,
+                availability_4: 55,
+                unit_1: "hours",
+                unit_2: "hours",
+                unit_3: "hours",
+                unit_4: "hours"
+            },
+            {
+                attendance_1: 0,
+                attendance_2: 1,
+                attendance_3: 10,
+                attendance_4: 55,
+                availability_1: 33,
+                availability_2: 22,
+                availability_3: -44,
+                availability_4: 55,
+                unit_1: "hours",
+                unit_2: "hours",
+                unit_3: "hours",
+                unit_4: "hours"
+            },
+            {
+                attendance_1: 0,
+                attendance_2: 1,
+                attendance_3: 10,
+                attendance_4: 55,
+                availability_1: 33,
+                availability_2: 22,
+                availability_3: 44,
+                availability_4: -55,
+                unit_1: "hours",
+                unit_2: "hours",
+                unit_3: "hours",
+                unit_4: "hours"
+            },
+        ]
+    ],
+    high: [
+        [
+            {
+                attendance_1: 11110,
+                attendance_2: 1,
+                attendance_3: 10,
+                attendance_4: 55,
+                availability_1: 33,
+                availability_2: 22,
+                availability_3: 44,
+                availability_4: 55,
+                unit_1: "hours",
+                unit_2: "hours",
+                unit_3: "hours",
+                unit_4: "hours"
+            },
+            {
+                attendance_1: 0,
+                attendance_2: 1,
+                attendance_3: 10,
+                attendance_4: 55,
+                availability_1: 33,
+                availability_2: 0.2,
+                availability_3: 44,
+                availability_4: 55,
+                unit_1: "hours",
+                unit_2: "hours",
+                unit_3: "hours",
+                unit_4: "hours"
+            },
+            {
+                attendance_1: 0,
+                attendance_2: 1,
+                attendance_3: 1000,
+                attendance_4: 55,
+                availability_1: 33,
+                availability_2: 22,
+                availability_3: 44,
+                availability_4: 55,
+                unit_1: "hours",
+                unit_2: "hours",
+                unit_3: "hours",
+                unit_4: "hours"
+            },
+            {
+                attendance_1: 0,
+                attendance_2: 1,
+                attendance_3: 10,
+                attendance_4: 55,
+                availability_1: 33,
+                availability_2: 22,
+                availability_3: 44,
+                availability_4: 5,
+                unit_1: "hours",
+                unit_2: "hours",
+                unit_3: "hours",
+                unit_4: "hours"
+            },
+        ]
     ]
 }
 
@@ -120,14 +412,23 @@ describe("extractData", () => {
 
     test.each(extractDataSuites.valid)('returns extractedData for valid query (%#)', (input, expected) => {
         expect(extractData(input)).toMatchObject(expected);
-        // index++;
     }, )
 
     test.each(extractDataSuites.diffCounts)('throws error for different counts of attendances/availabilities/units (%#)', (input) => {
         expect(()=>extractData(input)).toThrow();
     })
 
-    /// TODO negatives etc.
+    test.each(extractDataSuites.nonNumeric)('throws error for non numeric inputs', (input) => {
+        expect(()=>extractData(input)).toThrow();
+    })
+
+    test.each(extractDataSuites.negative)('throws error for negative inputs', (input) => {
+        expect(()=>extractData(input)).toThrow();
+    })
+
+    test.each(extractDataSuites.high)('throws error for attendances above availabilities', (input) => {
+        expect(()=>extractData(input)).toThrow();
+    })
 
 });
 
