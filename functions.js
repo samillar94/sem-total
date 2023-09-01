@@ -31,8 +31,8 @@ function extractData(query) {
     let attFloat = parseFloat(att);
     let avFloat = parseFloat(av);
 
-    if (attFloat == NaN) throw new Error("Non-numerical/blank attendance");
-    if (avFloat == NaN) throw new Error("Non-numerical/blank availability");
+    if (isNaN(attFloat)) throw new Error("Non-numerical/blank attendance");
+    if (isNaN(avFloat)) throw new Error("Non-numerical/blank availability");
 
     if (attFloat < 0) throw new Error("Negative attendance");
     if (avFloat < 0) throw new Error("Negative availability");
