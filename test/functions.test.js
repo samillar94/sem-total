@@ -118,16 +118,13 @@ const extractDataSuites = {
 
 describe("extractData", () => {
 
-    // let index = 0;
     test.each(extractDataSuites.valid)('returns extractedData for valid query (%#)', (input, expected) => {
         expect(extractData(input)).toMatchObject(expected);
         // index++;
     }, )
 
-    // index = 0;
     test.each(extractDataSuites.diffCounts)('throws error for different counts of attendances/availabilities/units (%#)', (input) => {
         expect(()=>extractData(input)).toThrow();
-        // index++;
     })
 
     /// TODO negatives etc.
@@ -188,10 +185,8 @@ const buildResultsSuites = {
 
 describe("buildResults", () => {
 
-    // let index = 0;
     test.each(buildResultsSuites.valid)('returns resToFront for valid extractedData (%#)', (input, expected) => {
         expect(buildResults(input)).toMatchObject(expected);
-        // index++;
     });
 
 });
